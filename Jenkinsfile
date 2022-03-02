@@ -61,6 +61,9 @@ pipeline{
 
 				  sh 'kubectl get pods'
 				   sh 'kubectl get nodes'
+                 // sh "sed -i 's/hellonodejs:latest/hellonodejs:eks/g' deploy.yaml"
+                 sh 'kubectl apply -f deployment.yaml'
+                 // sh 'kubectl rollout restart deployment hello-world-nodejs'
 				  
 			  }
 
@@ -68,16 +71,19 @@ pipeline{
 
 		}
 
-        stage('eks deploy') {
+        // stage('eks deploy') {
 
-			steps {
-				sh 'echo Hello World'
-				sh 'kubectl get pods'
-                // sh "sed -i 's/hellonodejs:latest/hellonodejs:eks/g' deploy.yaml"
-                // sh 'kubectl apply -f deploy.yaml'
-                // sh 'kubectl rollout restart deployment hello-world-nodejs'
-			}
-		}
+		// 	steps {
+		// 		withAWS(credentials: 'aws-veeranon', region: 'ap-southeast-1') {
+
+		// 		}
+		// 		sh 'echo Hello World'
+		// 		sh 'kubectl get pods'
+        //         // sh "sed -i 's/hellonodejs:latest/hellonodejs:eks/g' deploy.yaml"
+        //         // sh 'kubectl apply -f deploy.yaml'
+        //         // sh 'kubectl rollout restart deployment hello-world-nodejs'
+		// 	}
+		// }
 	}
 
 

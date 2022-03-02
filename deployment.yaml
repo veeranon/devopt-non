@@ -1,3 +1,4 @@
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eks-jenkins-demo
@@ -20,7 +21,7 @@ spec:
         app: eks-jenkins-demo
     spec:
       containers:
-        - image: veeranon/ecsdemo-devopt-non
+        - image: veeranon/ecsdemo-devopt-non:latest
           imagePullPolicy: Always
           name: eks-jenkins-demo
           ports:
